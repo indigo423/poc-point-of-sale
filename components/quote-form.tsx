@@ -56,11 +56,11 @@ export function QuoteForm() {
     )
   }
 
-  // Subscription prices (free/open source)
+  // Subscription prices
   const subscriptions = [
-    { label: "Meridian Core", selected: coreSelected, price: 0 },
-    { label: "Meridian Minion", selected: minionSelected, price: 0 },
-    { label: "Meridian Sentinel", selected: sentinelSelected, price: 0 },
+    { label: "Meridian Core", selected: coreSelected, price: 6000 },
+    { label: "Meridian Minion", selected: minionSelected, price: 2000 },
+    { label: "Meridian Sentinel", selected: sentinelSelected, price: 4000 },
   ].filter((s) => s.selected)
 
   // Calculate Software Support price breakdown
@@ -90,7 +90,8 @@ export function QuoteForm() {
   ].filter((s) => s.selected)
 
   // Calculate total price
-  const totalPrice = supportTotal + professionalServicesPrice
+  const subscriptionTotal = subscriptions.reduce((sum, sub) => sum + sub.price, 0)
+  const totalPrice = subscriptionTotal + supportTotal + professionalServicesPrice
 
   return (
     <div className="h-full overflow-y-auto p-6">
