@@ -5,6 +5,7 @@ export interface ConfiguratorState {
   minionSelected: boolean
   sentinelSelected: boolean
   supportSelected: boolean
+  professionalServicesSelected: boolean
   bannerDismissed: boolean
   viewMode: "configurator" | "review"
   highlightedCard: string | null
@@ -12,6 +13,7 @@ export interface ConfiguratorState {
   toggleMinion: () => void
   toggleSentinel: () => void
   toggleSupport: () => void
+  toggleProfessionalServices: () => void
   dismissBanner: () => void
   setViewMode: (mode: "configurator" | "review") => void
   setHighlightedCard: (card: string | null) => void
@@ -24,6 +26,7 @@ export const useConfiguratorStore = create<ConfiguratorState>((set, get) => ({
   minionSelected: false,
   sentinelSelected: false,
   supportSelected: false,
+  professionalServicesSelected: false,
   bannerDismissed: false,
   viewMode: "configurator",
   highlightedCard: null,
@@ -82,6 +85,11 @@ export const useConfiguratorStore = create<ConfiguratorState>((set, get) => ({
       }
     }),
 
+  toggleProfessionalServices: () =>
+    set((state) => ({
+      professionalServicesSelected: !state.professionalServicesSelected,
+    })),
+
   dismissBanner: () => set({ bannerDismissed: true }),
 
   setViewMode: (mode) => set({ viewMode: mode }),
@@ -95,6 +103,7 @@ export const useConfiguratorStore = create<ConfiguratorState>((set, get) => ({
     if (state.minionSelected) count++
     if (state.sentinelSelected) count++
     if (state.supportSelected) count++
+    if (state.professionalServicesSelected) count++
     return count
   },
 
