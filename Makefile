@@ -1,16 +1,19 @@
-.PHONY: install dev build lint clean
+.PHONY: install dev build lint clean help
 
-install:
+help: ## Show this help
+	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "  %-10s %s\n", $$1, $$2}'
+
+install: ## Install dependencies
 	pnpm install
 
-dev:
+dev: ## Start dev server (localhost:3000)
 	pnpm dev
 
-build:
+build: ## Production build
 	pnpm build
 
-lint:
+lint: ## Run ESLint
 	pnpm lint
 
-clean:
+clean: ## Remove .next build artifacts
 	rm -rf .next

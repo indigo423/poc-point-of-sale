@@ -23,10 +23,10 @@ jobs:
           cache: 'pnpm'
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: make install
 
       - name: Lint
-        run: pnpm lint
+        run: make lint
 
       - name: Build
-        run: pnpm build
+        run: make build
