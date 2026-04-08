@@ -318,7 +318,7 @@ export function ArchitectureDiagram() {
               textAnchor="middle"
               className="text-xs fill-muted-foreground"
             >
-              Distributed Zone Proxy
+              Monitoring Proxy
             </text>
             <text
               x="200"
