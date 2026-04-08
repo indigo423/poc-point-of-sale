@@ -180,11 +180,11 @@ export function ArchitectureDiagram() {
             y="92"
             textAnchor="middle"
             className={cn(
-              "text-xs font-medium transition-colors",
+              "text-[10px] font-medium italic transition-colors",
               supportSelected ? "fill-primary" : "fill-muted-foreground"
             )}
           >
-            {supportSelected ? "2 Instances" : "Unlimited with self-support"}
+            {supportSelected ? "2 Instances" : "Unlimited – self-support"}
           </text>
           {supportSelected && (
             <g transform={`translate(${sentinelSelected ? 168 : 248}, 22)`}>
@@ -252,11 +252,11 @@ export function ArchitectureDiagram() {
               y="92"
               textAnchor="middle"
               className={cn(
-                "text-xs font-medium transition-colors",
+                "text-[10px] font-medium italic transition-colors",
                 supportSelected ? "fill-chart-2" : "fill-muted-foreground"
               )}
             >
-              {supportSelected ? "10 Sentinels" : "Unlimited with self-support"}
+              {supportSelected ? "10 Sentinels" : "Unlimited – self-support"}
             </text>
             {supportSelected && (
               <g transform="translate(368, 22)">
@@ -325,11 +325,11 @@ export function ArchitectureDiagram() {
               y="212"
               textAnchor="middle"
               className={cn(
-                "text-xs font-medium transition-colors",
+                "text-[10px] font-medium italic transition-colors",
                 supportSelected ? "fill-chart-3" : "fill-muted-foreground"
               )}
             >
-              {supportSelected ? "50 Minions" : "Unlimited with self-support"}
+              {supportSelected ? "50 Minions" : "Unlimited – self-support"}
             </text>
             {supportSelected && (
               <g transform="translate(268, 142)">
