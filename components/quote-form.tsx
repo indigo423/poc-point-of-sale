@@ -57,14 +57,32 @@ export function QuoteForm() {
   }
 
   const subscriptions = [
-    { label: "Meridian Core", selected: coreSelected },
-    { label: "Meridian Minion", selected: minionSelected },
-    { label: "Meridian Sentinel", selected: sentinelSelected },
+    { label: "Meridian Core", selected: coreSelected, price: 0 },
+    { label: "Meridian Minion", selected: minionSelected, price: 0 },
+    { label: "Meridian Sentinel", selected: sentinelSelected, price: 0 },
   ].filter((s) => s.selected)
 
+  // Calculate Software Support price breakdown
+  const supportBreakdown = []
+  let supportTotal = 0
+  if (supportSelected) {
+    if (coreSelected) {
+      supportBreakdown.push({ label: "Core Support", price: 12000 })
+      supportTotal += 12000
+    }
+    if (minionSelected) {
+      supportBreakdown.push({ label: "Minion Support", price: 10000 })
+      supportTotal += 10000
+    }
+    if (sentinelSelected) {
+      supportBreakdown.push({ label: "Sentinel Support", price: 16000 })
+      supportTotal += 16000
+    }
+  }
+
   const services = [
-    { label: "Software Support", selected: supportSelected },
-    { label: "Professional Services", selected: professionalServicesSelected },
+    { label: "Software Support", selected: supportSelected, price: supportTotal, breakdown: supportBreakdown },
+    { label: "Professional Services", selected: professionalServicesSelected, price: 0 },
   ].filter((s) => s.selected)
 
   return (
@@ -91,7 +109,9 @@ export function QuoteForm() {
                   <li key={sub.label} className="flex items-center gap-2 text-sm">
                     <Check className="h-4 w-4 text-primary" />
                     {sub.label}
-                    <span className="text-muted-foreground ml-auto">annual</span>
+                    <span className="text-muted-foreground ml-auto">
+                      {sub.price > 0 ? `$${sub.price.toLocaleString()}/year` : 'annual'}
+                    </span>
                   </li>
                 ))}
               </ul>
@@ -103,12 +123,26 @@ export function QuoteForm() {
               <h3 className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-2">
                 Services — 1 year
               </h3>
-              <ul className="space-y-1">
+              <ul className="space-y-2">
                 {services.map((svc) => (
-                  <li key={svc.label} className="flex items-center gap-2 text-sm">
-                    <Check className="h-4 w-4 text-primary" />
-                    {svc.label}
-                    <span className="text-muted-foreground ml-auto">annual</span>
+                  <li key={svc.label}>
+                    <div className="flex items-center gap-2 text-sm">
+                      <Check className="h-4 w-4 text-primary" />
+                      {svc.label}
+                      <span className="font-medium ml-auto">
+                        {svc.price > 0 ? `$${svc.price.toLocaleString()}/year` : 'annual'}
+                      </span>
+                    </div>
+                    {svc.breakdown && svc.breakdown.length > 0 && (
+                      <ul className="ml-6 mt-1 space-y-0.5">
+                        {svc.breakdown.map((item) => (
+                          <li key={item.label} className="flex items-center gap-2 text-xs text-muted-foreground italic">
+                            <span>{item.label}</span>
+                            <span className="ml-auto">${item.price.toLocaleString()}/year</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
                   </li>
                 ))}
               </ul>
