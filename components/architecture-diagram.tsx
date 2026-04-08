@@ -74,7 +74,7 @@ export function ArchitectureDiagram() {
               textAnchor="middle"
               className="text-xs fill-muted-foreground"
             >
-              Sentinel
+              Meridian Sentinel
             </text>
 
             {/* Horizontal connection line */}
@@ -237,7 +237,7 @@ export function ArchitectureDiagram() {
               textAnchor="middle"
               className="text-sm fill-foreground font-semibold"
             >
-              Sentinel
+              Meridian Sentinel
             </text>
             <text
               x="300"
