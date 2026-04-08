@@ -23,12 +23,11 @@ export function ProductConfigurator() {
 
   // Calculate Software Support price based on selected components
   let supportPrice: number | undefined
-  if (coreSelected) {
-    supportPrice = 12000
-  } else if (minionSelected) {
-    supportPrice = 10000
-  } else if (sentinelSelected) {
-    supportPrice = 16000
+  if (hasSubscriptionComponents) {
+    supportPrice = 0
+    if (coreSelected) supportPrice += 12000
+    if (minionSelected) supportPrice += 10000
+    if (sentinelSelected) supportPrice += 16000
   }
 
   return (
