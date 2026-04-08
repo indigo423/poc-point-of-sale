@@ -107,7 +107,7 @@ export function ArchitectureDiagram() {
               textAnchor="middle"
               className="text-xs fill-muted-foreground"
             >
-              Minion
+              Meridian Minion
             </text>
 
             {/* Vertical connection line */}
@@ -310,7 +310,7 @@ export function ArchitectureDiagram() {
               textAnchor="middle"
               className="text-sm fill-foreground font-semibold"
             >
-              Minion
+              Meridian Minion
             </text>
             <text
               x="200"
