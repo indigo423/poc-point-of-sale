@@ -245,7 +245,7 @@ export function ArchitectureDiagram() {
               textAnchor="middle"
               className="text-xs fill-muted-foreground"
             >
-              Flow Persistence
+              Offload Flow Persistence
             </text>
             <text
               x="300"
