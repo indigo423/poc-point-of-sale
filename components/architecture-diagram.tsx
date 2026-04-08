@@ -2,6 +2,7 @@
 
 import { cn } from "@/lib/utils"
 import { useConfiguratorStore } from "@/lib/configurator-store"
+import { Shield } from "lucide-react"
 
 export function ArchitectureDiagram() {
   const {
@@ -189,14 +190,9 @@ export function ArchitectureDiagram() {
           {supportSelected && (
             <g transform={`translate(${sentinelSelected ? 168 : 248}, 22)`}>
               <circle r="10" className="fill-primary" />
-              <text
-                x="0"
-                y="4"
-                textAnchor="middle"
-                className="text-[8px] fill-primary-foreground font-bold"
-              >
-                S
-              </text>
+              <foreignObject x="-7" y="-7" width="14" height="14">
+                <Shield className="h-3.5 w-3.5 text-primary-foreground" />
+              </foreignObject>
             </g>
           )}
         </g>
@@ -261,14 +257,9 @@ export function ArchitectureDiagram() {
             {supportSelected && (
               <g transform="translate(368, 22)">
                 <circle r="10" className="fill-chart-2" />
-                <text
-                  x="0"
-                  y="4"
-                  textAnchor="middle"
-                  className="text-[8px] fill-primary-foreground font-bold"
-                >
-                  S
-                </text>
+                <foreignObject x="-7" y="-7" width="14" height="14">
+                  <Shield className="h-3.5 w-3.5 text-primary-foreground" />
+                </foreignObject>
               </g>
             )}
           </g>
@@ -334,14 +325,9 @@ export function ArchitectureDiagram() {
             {supportSelected && (
               <g transform="translate(268, 142)">
                 <circle r="10" className="fill-chart-3" />
-                <text
-                  x="0"
-                  y="4"
-                  textAnchor="middle"
-                  className="text-[8px] fill-primary-foreground font-bold"
-                >
-                  S
-                </text>
+                <foreignObject x="-7" y="-7" width="14" height="14">
+                  <Shield className="h-3.5 w-3.5 text-primary-foreground" />
+                </foreignObject>
               </g>
             )}
             
