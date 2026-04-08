@@ -173,7 +173,7 @@ export function ArchitectureDiagram() {
             textAnchor="middle"
             className="text-xs fill-muted-foreground"
           >
-            LTS Network Server
+            Control Plane
           </text>
           <text
             x={sentinelSelected ? 100 : 180}
