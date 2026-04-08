@@ -56,6 +56,7 @@ export function QuoteForm() {
     )
   }
 
+  // Subscription prices (free/open source)
   const subscriptions = [
     { label: "Meridian Core", selected: coreSelected, price: 0 },
     { label: "Meridian Minion", selected: minionSelected, price: 0 },
@@ -80,10 +81,16 @@ export function QuoteForm() {
     }
   }
 
+  // Professional services pricing
+  const professionalServicesPrice = professionalServicesSelected ? 0 : 0
+
   const services = [
     { label: "Software Support", selected: supportSelected, price: supportTotal, breakdown: supportBreakdown },
-    { label: "Professional Services", selected: professionalServicesSelected, price: 0 },
+    { label: "Professional Services", selected: professionalServicesSelected, price: professionalServicesPrice },
   ].filter((s) => s.selected)
+
+  // Calculate total price
+  const totalPrice = supportTotal + professionalServicesPrice
 
   return (
     <div className="h-full overflow-y-auto p-6">
@@ -110,7 +117,7 @@ export function QuoteForm() {
                     <Check className="h-4 w-4 text-primary" />
                     {sub.label}
                     <span className="text-muted-foreground ml-auto">
-                      {sub.price > 0 ? `$${sub.price.toLocaleString()}/year` : 'annual'}
+                      ${sub.price.toLocaleString()}/year
                     </span>
                   </li>
                 ))}
@@ -146,6 +153,15 @@ export function QuoteForm() {
                   </li>
                 ))}
               </ul>
+            </div>
+          )}
+
+          {totalPrice > 0 && (
+            <div className="pt-4 border-t border-border">
+              <div className="flex items-center justify-between text-base font-semibold">
+                <span>Total (1 year)</span>
+                <span>${totalPrice.toLocaleString()}/year</span>
+              </div>
             </div>
           )}
         </div>
